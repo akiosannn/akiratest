@@ -21,7 +21,8 @@ app.post("/Human",async (req,res) => {
     });
     try{
         await human.save();
-        res.send(human);
+        alert("登録が成功しました！！")
+        res.redirect("/")
     } catch(err){
         res.status(500).send(err);
     }
