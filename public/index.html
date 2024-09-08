@@ -26,6 +26,21 @@
     </p>
 
     </main>
-    
+
+    <h1>名前リスト</h1>
+    <ul id = names></ul>
+
+    <script>
+        fetch("/Humans")
+        .then(response => response.json())
+        .then(data=>{
+            const namelist =document.getElementById("names") 
+            data.forEach(name =>{
+                const li = document.createElement("li")
+                li.textContent = name
+                namelist.appendChild(li)
+            })
+        })
+    </script>
 </body>
 </html>

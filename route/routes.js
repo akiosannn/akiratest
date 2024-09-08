@@ -1,21 +1,21 @@
 const express = require("express");
 const app = express();
-const Human = require("../Human/Human");
+const Humans = require("../Human/Human");
 
 app.get("/Humans",async (req,res) => {
-    await Human.find();
-
+    const humansdata = await Humans.find();
+    const namedata = humansdata.map(humansdata => humansdata.name )
     try{
-        res.send(Human);
+        res.json(namedata);
     } catch(err){
         res.status(500).send(err);
     }
-
+    console.log(namedata);
 } )
 
 app.post("/Human",async (req,res) => {
     console.log("Request Body:",req.body); 
-    const human = new Human({
+    const human = new Humans({
         name: req.body.namae,
         age: req.body.toshi || 0 
     });
@@ -29,3 +29,4 @@ app.post("/Human",async (req,res) => {
 } )
 
 module.exports = app;
+;

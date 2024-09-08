@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const Human = new mongoose.Schema({
+const Humans = new mongoose.Schema({
 name:{
     type: String,
     required:true,
@@ -12,5 +12,5 @@ age:{
     default:0
 }
 })
-   
-module.exports = mongoose.model(`Human`,Human);
+                                 //第一引数：mongodbのフォルダ名　第二引数：スキーマモデル
+module.exports = mongoose.model(`humans`,Humans);
