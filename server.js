@@ -9,7 +9,7 @@ app.use(routes);
 
 
 //pass:H130h130
-mongoose.connect(`mongodb+srv://akiosannn:H130h130@cluster0.0rjo3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
+mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("データベース接続成功🔴"))
 .catch(err => console.log('データベース接続失敗✖'))
 
