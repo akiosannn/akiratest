@@ -7,6 +7,7 @@ app.use(express.json());
 const routes = require('./route/routes');
 app.use(routes);
 
+app.use(express.static(path.join(__dirname,`public`)))
 
 //pass:H130h130
 mongoose.connect(process.env.MONGO_URL)
