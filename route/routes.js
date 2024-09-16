@@ -36,7 +36,7 @@ app.post("/RHHuman",async (req,res) => {
     });
     try{
         await human.save();
-        res.status(200).send('データが正常に保存されました');
+        res.status(200).json({message:'データが正常に保存されました'});
     } catch(err){
         res.status(500).send(err);
     }
