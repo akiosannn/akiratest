@@ -28,5 +28,19 @@ app.post("/Human",async (req,res) => {
 
 } )
 
+app.post("/RHHuman",async (req,res) => {
+    console.log("Request Body:",req.body); 
+    const human = new Humans({
+        name: req.body.namae,
+        age: req.body.toshi || 0 
+    });
+    try{
+        await human.save();
+    } catch(err){
+        res.status(500).send(err);
+    }
+
+} )
+
 module.exports = app;
 ;
